@@ -1,5 +1,6 @@
 package com.example.jetpackcomposebasics
 
+import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,6 +31,7 @@ import com.example.jetpackcomposebasics.ui.theme.JetpackComposeBasicsTheme
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.text.font.FontWeight
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -106,7 +108,7 @@ fun Greeting(name: String) {
                 .weight(1f)
                 .padding(bottom = extraPadding)) {
                 Text(text = "Hello, ")
-                Text(text = name)
+                Text(text = name, style = MaterialTheme.typography.headlineMedium.copy(fontWeight = FontWeight.ExtraBold))
             }
             ElevatedButton(
                 onClick = { expanded = !expanded },
@@ -117,7 +119,7 @@ fun Greeting(name: String) {
     }
 }
 
-@Preview(showBackground = true, widthDp = 320)
+@Preview(showBackground = true, widthDp = 320,/*uiMode = UI_MODE_NIGHT_YES, name = "Dark"*/)
 @Composable
 private fun DefaultPreview() {
     JetpackComposeBasicsTheme {
